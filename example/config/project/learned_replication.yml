@@ -1,0 +1,7 @@
+resources:
+  projects:
+    - name: Learned Replication
+      environments:
+        - name: Production
+        - name: Development
+

@@ -1,0 +1,6 @@
+resources:
+  projects:
+    - name: Fantasy Sportsball
+      environments:
+        - name: Production
+        - name: Development

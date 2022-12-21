@@ -1,0 +1,6 @@
+resources:
+  projects:
+    - name: NFT Pricing
+      environments:
+        - name: Production
+        - name: Development

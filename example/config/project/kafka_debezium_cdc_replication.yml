@@ -1,0 +1,6 @@
+resources:
+  projects:
+    - name: Kafka/Debezium CDC Replication
+      environments:
+        - name: Production
+        - name: Development

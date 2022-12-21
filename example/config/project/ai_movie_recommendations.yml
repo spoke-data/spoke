@@ -1,0 +1,6 @@
+resources:
+  projects:
+    - name: AI Movie Recommendations
+      environments:
+        - name: Production
+        - name: Development

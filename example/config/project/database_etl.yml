@@ -1,0 +1,6 @@
+resources:
+  projects:
+    - name: Database ETL
+      environments:
+        - name: Production
+        - name: Development

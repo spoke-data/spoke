@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  minio:
+    image: quay.io/minio/minio:RELEASE.2022-12-12T19-27-27Z
+    command: server --address 0.0.0.0:9000 --console-address ":9001" /data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: password
+    hostname: minio
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  postgres:
+    image: postgres:15.3-alpine3.18
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    user: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mariadb:
+    image: mariadb:11.0.2
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    environment:
+      - MARIADB_USER=mariadb
+      - MARIADB_PASSWORD=password
+      - MARIADB_ROOT_PASSWORD=password
+
+  grafana:
+    image: grafana/grafana:9.1.8
+    ports:
+      - "3002:3000"
+
+  qryn:
+    image: qxip/qryn:v2.1.53
+
+volumes:
+  postgres_data: {}
+  mariadb_data: {}
+  minio_data: {}
