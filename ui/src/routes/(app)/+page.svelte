@@ -12,8 +12,7 @@
 <div class="grid grid-cols-1 gap-12 mt-8">
 	<div>
 		<h3 class="h4">Requests</h3>
-
-		<div class="flex gap-4 mt-8">
+		<div class="flex gap-4 mt-4">
 			{#each data.requests as req}
 				<a href={`/requests/${req.id}`} class="block card card-hover p-4 text-lg">
 					<header class="card-header p-0">{req.type}</header>
@@ -26,8 +25,7 @@
 
 	<div>
 		<h3 class="h4">Operations</h3>
-
-		<div class="flex gap-4 mt-8">
+		<div class="flex gap-4 mt-4">
 			{#each data.activeProjects as proj}
 				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
 					<header class="card-header p-0">{proj.name}</header>
@@ -40,8 +38,7 @@
 
 	<div>
 		<h3 class="h4">Incidents</h3>
-
-		<div class="flex gap-4 mt-8">
+		<div class="flex gap-4 mt-4">
 			{#each data.activeProjects as proj}
 				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
 					<header class="card-header p-0">{proj.name}</header>
@@ -54,8 +51,7 @@
 
 	<div>
 		<h3 class="h4">Most Active Projects</h3>
-
-		<div class="flex gap-4 mt-8">
+		<div class="flex gap-4 mt-4">
 			{#each data.activeProjects as proj}
 				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
 					<header class="card-header p-0">{proj.name}</header>
@@ -68,8 +64,7 @@
 
 	<div>
 		<h3 class="h4">Recommended Projects</h3>
-
-		<div class="flex gap-4 mt-8">
+		<div class="flex gap-4 mt-4">
 			{#each data.recommendedProjects as proj}
 				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
 					<header class="card-header p-0">{proj.name}</header>

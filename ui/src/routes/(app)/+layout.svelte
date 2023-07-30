@@ -54,9 +54,7 @@
 				<FocusKey element={searchElement} />
 			</div>
 			<div class="flex items-center gap-4">
-				{#if false}
-					<a href="/explore">explore</a>
-				{/if}
+				<a href="/explore">explore</a>
 				<LightSwitch />
 				<div class="ring-outline-token rounded-full p-1">
 					<Avatar

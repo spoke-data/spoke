@@ -8,22 +8,40 @@ A local first development experience with a simple path to the cloud.
 
 ## Development
 
-Install npm packages:
+Start a `nix` dev shell
 
 ```shell
-npm install
+nix develop -c $SHELL
+```
+
+Install npm package:
+
+```shell
+nix run .#ui.install
 ```
 
 Run the development server:
 
 ```shell
-npm run dev
+nix run .#ui.dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ```shell
-open http://localhost:3000
+nix run .#ui.open
+```
+
+Build the `spoke` binary
+
+```shell
+nix build .#build-fast --no-sandbox
+```
+
+Run the `spoke` binary
+
+```shell
+nix run .#build-fast --no-sandbox
 ```
 
 ## Authors
