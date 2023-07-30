@@ -4,10 +4,10 @@
 </script>
 
 <div>
-	<div class="flex items-center gap-2 mb-2">
-		<a href="/projects" class="h3 font-medium opacity-75">Projects</a>
-		<span class="text-2xl text-surface-300 font-medium">/</span>
-		<h1 class="h3">{data.project.name}</h1>
+	<div class="flex items-center gap-2 mb-4">
+		<a href="/projects" class="h4 font-medium opacity-75">Projects</a>
+		<span class="text-xl text-surface-300 font-medium">/</span>
+		<h1 class="h4">{data.project.name}</h1>
 	</div>
 	<hr class="!border-t-2" />
 

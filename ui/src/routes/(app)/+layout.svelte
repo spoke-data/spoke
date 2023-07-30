@@ -46,10 +46,10 @@
 			</div>
 			<div>
 				<input
-					type="text"
+					type="search"
 					placeholder="/"
 					bind:this={searchElement}
-					class="w-[500px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[600px] 2xl:w-[700px] 3xl:w-[900px] 4xl:w-[1000px] rounded text-sm 3xl:text-2xl font-medium placeholder:text-slate-300"
+					class="input w-[500px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[600px] 2xl:w-[700px] 3xl:w-[900px] 4xl:w-[1000px] rounded text-md 3xl:text-3xl font-medium placeholder:text-slate-300"
 				/>
 				<FocusKey element={searchElement} />
 			</div>

@@ -54,7 +54,7 @@ fn getSidebar(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
                 \\  	{ "name": "MotherDuck", "slug": "mother-duck" },
                 \\  	{ "name": "Spoke", "slug": "spoke" }
                 \\  ],
-                \\  "storage": [
+                \\  "objectStorage": [
                 \\  	{ "name": "MinIO", "slug": "minio" },
                 \\  	{ "name": "AWS Lake 1", "slug": "aws-lake-1" },
                 \\  	{ "name": "GCP Lake 1", "slug": "gcp-lake-1" },
@@ -86,7 +86,7 @@ fn getSidebar(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
                 \\  	{ "name": "Spoke Cloud", "uri": "https://www.spoke.sh/cloud" }
                 \\  ],
                 \\  "teams": [
-                \\      { "organization": "Spoke", "name": "Core", "uri": "https://www.spoke.sh/teams/spoke/core" }
+                \\      { "organization": "Spoke", "organizationSlug": "spoke", "name": "Core", "slug": "core" }
                 \\  ],
                 \\  "organizations": [
                 \\  	{ "name": "Personal", "slug": "personal" },

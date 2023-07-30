@@ -6,17 +6,17 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-	const breadcrumbs = [{ name: 'Catalogs' }];
+	const breadcrumbs = [{ name: 'Object Storage' }];
 </script>
 
 <PageHeader {breadcrumbs}>
 	<a
-		href="/catalogs/new"
-		title="New Catalog"
+		href="/object-storage/new"
+		title="New Storage"
 		class="opacity-60 dark:opacity-75 group-hover:opacity-100"
 	>
 		<Fa icon={faSquarePlus} size="2x" />
 	</a>
 </PageHeader>
 
-<div class="mt-8">TODO... catalog overview dashboard</div>
+<div class="mt-8">TODO... object storage overview dashboard</div>

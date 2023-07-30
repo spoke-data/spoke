@@ -11,8 +11,8 @@ export const isCatalogsExpanded: Writable<boolean> = localStorageStore(
 	true
 );
 
-export const isStorageExpanded: Writable<boolean> = localStorageStore(
-	'spoke.isStorageExpanded',
+export const isObjectStorageExpanded: Writable<boolean> = localStorageStore(
+	'spoke.isObjectStorageExpanded',
 	false
 );
 

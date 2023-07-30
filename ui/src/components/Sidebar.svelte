@@ -4,7 +4,7 @@
 	import {
 		isProjectsExpanded,
 		isCatalogsExpanded,
-		isStorageExpanded,
+		isObjectStorageExpanded,
 		isConnectorsExpanded,
 		isComponentsExpanded,
 		isTeamsExpanded,
@@ -15,9 +15,13 @@
 	export let data;
 
 	$: resourceClassesActive = (href: string) =>
-		$page.url.pathname === href ? '!bg-tertiary-300 dark:!bg-tertiary-500 opacity-90' : '';
-	$: itemClassesActive = (href: string) =>
+		[href, `${href}/new`, `${href}/edit`].includes($page.url.pathname)
+			? '!bg-tertiary-300 dark:!bg-tertiary-500 opacity-90 !rounded-full hover:!rounded-full'
+			: 'hover:!rounded-full';
+	$: itemClassesStartsWithActive = (href: string) =>
 		$page.url.pathname.startsWith(href) ? '!bg-tertiary-300 dark:!bg-tertiary-500' : '';
+	$: itemClassesEqualsActive = (href: string) =>
+		$page.url.pathname === href ? '!bg-tertiary-300 dark:!bg-tertiary-500' : '';
 </script>
 
 <div id="sidebar-left" class="min-h-full hidden lg:block">
@@ -43,7 +47,7 @@
 		</AppRailAnchor>
 		<div class="flex flex-col gap-2 pr-2">
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/projects" class={resourceClassesActive('/projects')}>Projects</a>
 					<span
 						class="cursor-pointer"
@@ -51,14 +55,14 @@
 					>
 						{#if $isProjectsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.projects.length > 0}
 					<ul class={`opacity-90 ${$isProjectsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.projects as proj}
 							<li>
 								<a
 									href={`/projects/${proj.slug}`}
-									class={itemClassesActive(`/projects/${proj.slug}`)}
+									class={itemClassesStartsWithActive(`/projects/${proj.slug}`)}
 								>
 									{proj.name}
 								</a>
@@ -69,7 +73,7 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/catalogs" class={resourceClassesActive('/catalogs')}>Catalogs</a>
 					<span
 						class="cursor-pointer"
@@ -77,14 +81,14 @@
 					>
 						{#if $isCatalogsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.catalogs.length > 0}
 					<ul class={`opacity-90 ${$isCatalogsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.catalogs as cat}
 							<li>
 								<a
 									href={`/catalogs/${cat.slug}`}
-									class={itemClassesActive(`/catalogs/${cat.slug}`)}
+									class={itemClassesStartsWithActive(`/catalogs/${cat.slug}`)}
 								>
 									{cat.name}
 								</a>
@@ -95,24 +99,26 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
-					<a href="/storage" class={resourceClassesActive('/storage')}>Storage</a>
+				<h4 class="flex justify-between items-center h5">
+					<a href="/object-storage" class={resourceClassesActive('/object-storage')}
+						>Object Storage</a
+					>
 					<span
 						class="cursor-pointer"
-						on:click={() => isStorageExpanded.update(() => !$isStorageExpanded)}
+						on:click={() => isObjectStorageExpanded.update(() => !$isObjectStorageExpanded)}
 					>
-						{#if $isStorageExpanded}&#9660;{:else}&#9650;{/if}
+						{#if $isObjectStorageExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
-				{#if data.storage.length > 0}
-					<ul class={`opacity-90 ${$isStorageExpanded ? '' : 'invisible h-[0px]'}`}>
-						{#each data.storage as stor}
+				</h4>
+				{#if data.objectStorage.length > 0}
+					<ul class={`opacity-90 ${$isObjectStorageExpanded ? '' : 'invisible h-[0px]'}`}>
+						{#each data.objectStorage as obj}
 							<li>
 								<a
-									href={`/storage/${stor.slug}`}
-									class={itemClassesActive(`/storage/${stor.slug}`)}
+									href={`/object-storage/${obj.slug}`}
+									class={itemClassesStartsWithActive(`/object-storage/${obj.slug}`)}
 								>
-									{stor.name}
+									{obj.name}
 								</a>
 							</li>
 						{/each}
@@ -121,7 +127,7 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/connectors" class={resourceClassesActive('/connectors')}>Connectors</a>
 					<span
 						class="cursor-pointer"
@@ -129,14 +135,14 @@
 					>
 						{#if $isConnectorsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.connectors.length > 0}
 					<ul class={`opacity-90 ${$isConnectorsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.connectors as conn}
 							<li>
 								<a
 									href={`/connectors/${conn.slug}`}
-									class={itemClassesActive(`/connectors/${conn.slug}`)}>{conn.name}</a
+									class={itemClassesStartsWithActive(`/connectors/${conn.slug}`)}>{conn.name}</a
 								>
 							</li>
 						{/each}
@@ -145,7 +151,7 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/components" class={resourceClassesActive('/components')}>Components</a>
 					<span
 						class="cursor-pointer"
@@ -153,12 +159,12 @@
 					>
 						{#if $isComponentsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.components.length > 0}
 					<ul class={`opacity-90 ${$isComponentsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.components as comp}
 							<li>
-								<a href={comp.uri} class={itemClassesActive(`/components/${comp.slug}`)}
+								<a href={comp.uri} class={itemClassesStartsWithActive(`/components/${comp.slug}`)}
 									>{comp.name}</a
 								>
 							</li>
@@ -168,7 +174,7 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/teams" class={resourceClassesActive('/teams')}>Teams</a>
 					<span
 						class="cursor-pointer"
@@ -176,12 +182,17 @@
 					>
 						{#if $isTeamsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.teams.length > 0}
 					<ul class={`opacity-90 ${$isTeamsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.teams as team}
 							<li>
-								<a href={team.uri} class={itemClassesActive(`/teams/${team.uri}`)}>
+								<a
+									href={`/organizations/${team.organizationSlug}/teams/${team.slug}`}
+									class={itemClassesStartsWithActive(
+										`/organizations/${team.organizationSlug}/teams/${team.slug}`
+									)}
+								>
 									<span class="opacity-75">{team.organization}</span>
 									<span class="opacity-50">/</span>
 									<span>{team.name}</span>
@@ -193,7 +204,7 @@
 			</nav>
 
 			<nav class="list-nav">
-				<h2 class="flex justify-between items-center h4">
+				<h4 class="flex justify-between items-center h5">
 					<a href="/organizations" class={resourceClassesActive('/organizations')}>Organizations</a>
 					<span
 						class="cursor-pointer"
@@ -201,14 +212,14 @@
 					>
 						{#if $isOrganizationsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
-				</h2>
+				</h4>
 				{#if data.organizations.length > 0}
 					<ul class={`opacity-90 ${$isOrganizationsExpanded ? '' : 'invisible h-[0px]'}`}>
 						{#each data.organizations as org}
 							<li>
 								<a
-									href={`/organizations/${org.uri}`}
-									class={itemClassesActive(`/organizations/${org.slug}`)}>{org.name}</a
+									href={`/organizations/${org.slug}`}
+									class={itemClassesEqualsActive(`/organizations/${org.slug}`)}>{org.name}</a
 								>
 							</li>
 						{/each}
