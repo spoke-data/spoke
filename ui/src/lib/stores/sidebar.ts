@@ -8,7 +8,7 @@ export const isProjectsExpanded: Writable<boolean> = localStorageStore(
 
 export const isCatalogsExpanded: Writable<boolean> = localStorageStore(
 	'spoke.isCatalogsExpanded',
-	true
+	false
 );
 
 export const isObjectStorageExpanded: Writable<boolean> = localStorageStore(
@@ -23,6 +23,11 @@ export const isConnectorsExpanded: Writable<boolean> = localStorageStore(
 
 export const isComponentsExpanded: Writable<boolean> = localStorageStore(
 	'spoke.isComponentsExpanded',
+	false
+);
+
+export const isModelsExpanded: Writable<boolean> = localStorageStore(
+	'spoke.isModelsExpanded',
 	false
 );
 

@@ -82,8 +82,17 @@ fn getSidebar(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
                 \\  	{ "name": "AWS S3 Console", "uri": "https://aws.amazon.com/s3/" },
                 \\  	{ "name": "GCP GCS Console", "uri": "https://console.cloud.google.com/storage" },
                 \\  	{ "name": "Azure Lake Storage", "uri": "https://azure.microsoft.com/en-us/products/storage/data-lake-storage" },
-                \\  	{ "name": "Cloudflare R2", "uri": "https://developers.cloudflare.com/r2/" },
-                \\  	{ "name": "Spoke Cloud", "uri": "https://www.spoke.sh/cloud" }
+                \\  	{ "name": "Cloudflare R2", "uri": "https://developers.cloudflare.com/r2/" }
+                \\  ],
+                \\  "models": [
+                \\  	{ "name": "Dennis", "slug": "dennis" },
+                \\  	{ "name": "Tudor", "slug": "tudor" },
+                \\  	{ "name": "Assistant", "slug": "assistant" },
+                \\  	{ "name": "Replicant", "slug": "replicant" },
+                \\  	{ "name": "Picasso", "slug": "picasso" },
+                \\  	{ "name": "Mozart", "slug": "mozart" },
+                \\  	{ "name": "Schumacher", "slug": "schumacher" },
+                \\  	{ "name": "Madden", "slug": "madden" }
                 \\  ],
                 \\  "teams": [
                 \\      { "organization": "Spoke", "organizationSlug": "spoke", "name": "Core", "slug": "core" }

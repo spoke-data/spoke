@@ -7,6 +7,7 @@
 		isObjectStorageExpanded,
 		isConnectorsExpanded,
 		isComponentsExpanded,
+		isModelsExpanded,
 		isTeamsExpanded,
 		isOrganizationsExpanded
 	} from '../lib/stores/sidebar';
@@ -166,6 +167,30 @@
 							<li>
 								<a href={comp.uri} class={itemClassesStartsWithActive(`/components/${comp.slug}`)}
 									>{comp.name}</a
+								>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+			</nav>
+
+			<nav class="list-nav">
+				<h4 class="flex justify-between items-center h5">
+					<a href="/models" class={resourceClassesActive('/models')}>Models</a>
+					<span
+						class="cursor-pointer"
+						on:click={() => isModelsExpanded.update(() => !$isModelsExpanded)}
+					>
+						{#if $isModelsExpanded}&#9660;{:else}&#9650;{/if}
+					</span>
+				</h4>
+				{#if data.models.length > 0}
+					<ul class={`opacity-90 ${$isModelsExpanded ? '' : 'invisible h-[0px]'}`}>
+						{#each data.models as model}
+							<li>
+								<a
+									href={`/models/${model.slug}`}
+									class={itemClassesStartsWithActive(`/models/${model.slug}`)}>{model.name}</a
 								>
 							</li>
 						{/each}

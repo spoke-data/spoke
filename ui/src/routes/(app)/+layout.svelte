@@ -55,14 +55,18 @@
 			</div>
 			<div class="flex items-center gap-4">
 				<a href="/explore">explore</a>
+				<span class="opacity-50">|</span>
+				<a href="/lab">lab</a>
+				<span class="opacity-50">|</span>
+				<a href="/clusters">clusters</a>
 				<LightSwitch />
-				<div class="ring-outline-token rounded-full p-1">
-					<Avatar
-						src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
-						width="w-8 2xl:w-10"
-						rounded="rounded-full"
-					/>
-				</div>
+					<div class="ring-outline-token rounded-full p-1">
+						<Avatar
+							src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
+							width="w-8 2xl:w-10"
+							rounded="rounded-full"
+						/>
+					</div>
 			</div>
 		</AppBar>
 	</svelte:fragment>
