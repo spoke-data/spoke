@@ -9,9 +9,9 @@
 	import 'prismjs/themes/prism-solarizedlight.css';
 	import 'codejar-linenumbers/es/codejar-linenumbers.css';
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-  import { storePopup } from '@skeletonlabs/skeleton';
+	import { storePopup } from '@skeletonlabs/skeleton';
 
-  storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
 <slot />

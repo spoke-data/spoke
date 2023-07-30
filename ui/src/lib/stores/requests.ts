@@ -1,10 +1,10 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 type State = {
-  requests: Array<Request>;
+	requests: Array<Request>;
 };
 
 export const state = writable<State>({
-  requests: [],
+	requests: []
 });
 // export const connect = () => {
 //   // Create a new websocket
@@ -22,8 +22,8 @@ export const state = writable<State>({
 // };
 
 export function addRequest(request: Request) {
-  state.update((state) => ({
-    ...state,
-    requests: [...state.requests, request],
-  }));
+	state.update((state) => ({
+		...state,
+		requests: [...state.requests, request]
+	}));
 }

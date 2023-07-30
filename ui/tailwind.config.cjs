@@ -31,8 +31,11 @@ module.exports = {
 			'3xl': '1842px',
 			// => @media (min-width: 1842px) { ... }
 
-			'4xl': '2210px'
+			'4xl': '2210px',
 			// => @media (min-width: 2210px) { ... }
+
+			'5xl': '2578px'
+			// => @media (min-width: 2578px) { ... }
 		},
 		fontSize: {
 			xs: ['0.625rem', '1rem'],
