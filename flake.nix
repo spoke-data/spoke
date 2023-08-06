@@ -17,7 +17,6 @@
     zig-overlay,
     ...
   }: let
-    # systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
     systems = builtins.attrNames zig-overlay.packages;
     outputs = flake-utils.lib.eachSystem systems (system: let
       pkgs = import nixpkgs {
@@ -30,20 +29,32 @@
     in rec {
       # packages exported by the flake
       packages = {
-        spoke-small = pkgs.spoke-small {};
-        spoke-fast = pkgs.spoke-fast {};
-        spoke-debug = pkgs.spoke-debug {};
+        spoke-small = pkgs.spoke-small {release = "Small";};
+        spoke-fast = pkgs.spoke-fast {release = "Fast";};
+        spoke-debug = pkgs.spoke-debug {release = "Debug";};
+        docker-spoke-small = pkgs.dockerTools.buildImage {
+          name = "spoke-small";
+          config = {
+            Cmd = ["${packages.spoke-small}/bin/spoke"];
+          };
+        };
+        docker-spoke-fast = pkgs.dockerTools.buildImage {
+          name = "spoke-fast";
+          config = {
+            Cmd = ["${packages.spoke-fast}/bin/spoke"];
+          };
+        };
+        docker-spoke-debug = pkgs.dockerTools.buildImage {
+          name = "spoke-debug";
+          config = {
+            Cmd = ["${packages.spoke-debug}/bin/spoke"];
+          };
+        };
         default = packages.spoke-small {};
       };
 
       # nix run
       apps = {
-        docker = pkgs.dockerTools.buildImage {
-          name = "spoke-docker";
-          config = {
-            Cmd = ["${packages.spoke-small}/bin/spoke"];
-          };
-        };
         test.hurl = {
           type = "app";
           program = toString (pkgs.writeScript "test.hurl" ''
@@ -76,36 +87,72 @@
         ui.format = {
           type = "app";
           program = toString (pkgs.writeScript "ui.format" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run format
           '');
         };
         ui.check = {
           type = "app";
           program = toString (pkgs.writeScript "ui.check" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run check
           '');
         };
         ui.lint = {
           type = "app";
           program = toString (pkgs.writeScript "ui.lint" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run lint
           '');
         };
         ui.test = {
           type = "app";
           program = toString (pkgs.writeScript "ui.test" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run test:unit
           '');
         };
         ui.build = {
           type = "app";
           program = toString (pkgs.writeScript "ui.build" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run build
           '');
         };
         ui.start = {
           type = "app";
           program = toString (pkgs.writeScript "ui.start" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm run start
           '');
         };
@@ -118,10 +165,16 @@
         ui.install = {
           type = "app";
           program = toString (pkgs.writeScript "ui.install" ''
+            export PATH="${pkgs.lib.makeBinPath (
+              with pkgs; [
+                nodejs_20
+              ]
+            )}:$PATH"
+
             cd ui && npm install
           '');
         };
-        default = apps.start;
+        default = packages.spoke-fast;
       };
 
       # nix fmt
@@ -133,7 +186,7 @@
           pkgs.bats
           pkgs.hurl
           pkgs.nodejs_20
-          pkgs.zigpkgs.master
+          pkgs.zigpkgs."0.11.0"
         ];
       };
     });
@@ -143,9 +196,9 @@
       # Overlay that can be imported so you can access the packages
       # using spoke.overlays
       overlays = final: prev: {
-        spoke-small = prev.pkgs.callPackage ./nix/packages/spoke.nix {release = "Small";};
-        spoke-fast = prev.pkgs.callPackage ./nix/packages/spoke.nix {release = "Fast";};
-        spoke-debug = prev.pkgs.callPackage ./nix/packages/spoke.nix {release = "Debug";};
+        spoke-small = prev.pkgs.callPackage ./spoke.nix {release = "Small";};
+        spoke-fast = prev.pkgs.callPackage ./spoke.nix {release = "Fast";};
+        spoke-debug = prev.pkgs.callPackage ./spoke.nix {release = "Debug";};
       };
     };
 }

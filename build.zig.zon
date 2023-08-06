@@ -8,8 +8,8 @@
             .hash = "1220b5dafa54081ce54f108d0b7fa9451149bde7dc7c20f4e14e322fdeeb7a1dfd9e",
         },
         .zap = .{
-            .url = "https://github.com/zigzap/zap/archive/151a011c24bc52f28acd8b09ed33fe0aa3f714d1.tar.gz",
-            .hash = "1220cf8c599e5b9efcad048ab4eca7557339b5c628a4f1942b999317987eefba5290",
+            .url = "https://github.com/zigzap/zap/archive/7b2fe7132256f248237b9b3715cd02c89ab6a627.tar.gz",
+            .hash = "12202af100f2c44ea5a2312a99a92297411153796c4c8437c7e927b5a06e0d34d8fa",
         },
     }
 }
