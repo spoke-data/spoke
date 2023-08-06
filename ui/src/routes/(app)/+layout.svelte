@@ -49,24 +49,22 @@
 					type="search"
 					placeholder="/"
 					bind:this={searchElement}
-					class="input w-[500px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[600px] 2xl:w-[700px] 3xl:w-[900px] 4xl:w-[1000px] rounded text-md 3xl:text-3xl font-medium placeholder:text-slate-300"
+					class="input w-[500px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[600px] 2xl:w-[700px] 3xl:w-[900px] 4xl:w-[1000px] rounded text-md 3xl:text-lg font-medium placeholder:text-slate-300"
 				/>
 				<FocusKey element={searchElement} />
 			</div>
 			<div class="flex items-center gap-4">
-				<a href="/explore">explore</a>
+				<a href="/notebooks">notebooks</a>
 				<span class="opacity-50">|</span>
-				<a href="/lab">lab</a>
-				<span class="opacity-50">|</span>
-				<a href="/clusters">clusters</a>
+				<a href="/spokes">spokes</a>
 				<LightSwitch />
-					<div class="ring-outline-token rounded-full p-1">
-						<Avatar
-							src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
-							width="w-8 2xl:w-10"
-							rounded="rounded-full"
-						/>
-					</div>
+				<div class="ring-outline-token rounded-full p-1">
+					<Avatar
+						src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
+						width="w-8 2xl:w-10"
+						rounded="rounded-full"
+					/>
+				</div>
 			</div>
 		</AppBar>
 	</svelte:fragment>

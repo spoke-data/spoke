@@ -7,7 +7,7 @@
 		isObjectStorageExpanded,
 		isConnectorsExpanded,
 		isComponentsExpanded,
-		isModelsExpanded,
+		isCoreModelsExpanded,
 		isTeamsExpanded,
 		isOrganizationsExpanded
 	} from '../lib/stores/sidebar';
@@ -27,14 +27,11 @@
 
 <div id="sidebar-left" class="min-h-full hidden lg:block">
 	<div
-		class="flex flex-col gap-4 min-h-screen pt-4 pl-2 rounded-b border-r border-slate-200 dark:border-slate-600 bg-surface-100-800-token shadow-2xl"
+		class="flex flex-col min-h-screen pt-4 pl-2 rounded-b border-r border-slate-200 dark:border-slate-600 bg-surface-100-800-token shadow-2xl"
 	>
 		<AppRailAnchor href="/" class="hidden lg:block pl-2">
-			<div class="flex justify-between mb-1">
-				<strong class="flex items-center gap-4 h2">
-					<Logo />
-					<span>Spoke</span>
-				</strong>
+			<div class="flex justify-between items-center">
+				<Logo />
 				<button class="hidden lg:block btn btn-sm">
 					<span>
 						<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
@@ -176,21 +173,21 @@
 
 			<nav class="list-nav">
 				<h4 class="flex justify-between items-center h5">
-					<a href="/models" class={resourceClassesActive('/models')}>Models</a>
+					<a href="/core-models" class={resourceClassesActive('/core-models')}>Core Models</a>
 					<span
 						class="cursor-pointer"
-						on:click={() => isModelsExpanded.update(() => !$isModelsExpanded)}
+						on:click={() => isCoreModelsExpanded.update(() => !$isCoreModelsExpanded)}
 					>
-						{#if $isModelsExpanded}&#9660;{:else}&#9650;{/if}
+						{#if $isCoreModelsExpanded}&#9660;{:else}&#9650;{/if}
 					</span>
 				</h4>
-				{#if data.models.length > 0}
-					<ul class={`opacity-90 ${$isModelsExpanded ? '' : 'invisible h-[0px]'}`}>
-						{#each data.models as model}
+				{#if data.coreModels.length > 0}
+					<ul class={`opacity-90 ${$isCoreModelsExpanded ? '' : 'invisible h-[0px]'}`}>
+						{#each data.coreModels as model}
 							<li>
 								<a
-									href={`/models/${model.slug}`}
-									class={itemClassesStartsWithActive(`/models/${model.slug}`)}>{model.name}</a
+									href={`/core-models/${model.slug}`}
+									class={itemClassesStartsWithActive(`/core-models/${model.slug}`)}>{model.name}</a
 								>
 							</li>
 						{/each}

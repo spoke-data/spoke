@@ -5,5 +5,4 @@
 	export let lang;
 </script>
 
-<CodeEditor {code} {lang} tab="\t" class="input w-full min-h-[100px] text-xl p-2" />
-<div class="mt-4 mb-6 border p-2 border-slate-600">TODO... results</div>
+<CodeEditor {code} {lang} tab="\t" class="input w-full min-h-[100px] text-xl p-2 !border-l-8" />

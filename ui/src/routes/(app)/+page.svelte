@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Fa from 'svelte-fa';
+	import { faGear } from '@fortawesome/free-solid-svg-icons';
 	import PageHeader from '../../components/PageHeader.svelte';
 
 	/** @type {import('./$types').PageData} */
@@ -7,71 +9,40 @@
 	const breadcrumbs = [{ name: 'Hub' }];
 </script>
 
-<PageHeader {breadcrumbs} />
+<PageHeader {breadcrumbs}>
+	<a href="/hub/edit" title="New Team" class="opacity-60 dark:opacity-75 group-hover:opacity-100">
+		<Fa icon={faGear} size="lg" />
+	</a>
+</PageHeader>
 
-<div class="grid grid-cols-1 gap-12 mt-8">
-	<div>
-		<h4 class="h5">Requests</h4>
-		<div class="flex gap-4 mt-4">
-			{#each data.requests as req}
-				<a href={`/requests/${req.id}`} class="block card card-hover p-4 text-lg">
-					<header class="card-header p-0">{req.type}</header>
-					<section class="p-4">{req.detail}</section>
-					<footer class="card-footer">(footer)</footer>
-				</a>
-			{/each}
+<div
+	class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 4xl:grid-cols-4 5xl:grid-cols-5 gap-12 mt-8"
+>
+	<div class="bg-surface-800 p-4">
+		<h4 class="h5 mb-4">News</h4>
+		<div class="flex flex-col gap-4">
+			<div class="bg-surface-700 p-4">
+				<p>Meta and Microsoft Introduce the Next Generation of Llama</p>
+			</div>
+			<div class="bg-surface-700 p-4">
+				<p>Falcon AI: The New Open Source Large Language Model</p>
+			</div>
 		</div>
 	</div>
 
-	<div>
-		<h4 class="h5">Operations</h4>
-		<div class="flex gap-4 mt-4">
-			{#each data.activeProjects as proj}
-				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
-					<header class="card-header p-0">{proj.name}</header>
-					<section class="p-4">(content)</section>
-					<footer class="card-footer">(footer)</footer>
-				</a>
-			{/each}
-		</div>
+	<div class="hidden md:block bg-surface-800 p-4">
+		<h4 class="h5">Orgs/Personal</h4>
 	</div>
 
-	<div>
-		<h4 class="h5">Incidents</h4>
-		<div class="flex gap-4 mt-4">
-			{#each data.activeProjects as proj}
-				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
-					<header class="card-header p-0">{proj.name}</header>
-					<section class="p-4">(content)</section>
-					<footer class="card-footer">(footer)</footer>
-				</a>
-			{/each}
-		</div>
+	<div class="hidden 2xl:block bg-surface-800 p-4">
+		<h4 class="h5">Orgs/Spoke</h4>
 	</div>
 
-	<div>
-		<h4 class="h5">Most Active Projects</h4>
-		<div class="flex gap-4 mt-4">
-			{#each data.activeProjects as proj}
-				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
-					<header class="card-header p-0">{proj.name}</header>
-					<section class="p-4">(content)</section>
-					<footer class="card-footer">(footer)</footer>
-				</a>
-			{/each}
-		</div>
+	<div class="hidden 4xl:block bg-surface-800 p-4">
+		<h4 class="h5">Object Storage</h4>
 	</div>
 
-	<div>
-		<h4 class="h5">Recommended Projects</h4>
-		<div class="flex gap-4 mt-4">
-			{#each data.recommendedProjects as proj}
-				<a href={`/projects/${proj.slug}`} class="block card card-hover p-4 text-lg">
-					<header class="card-header p-0">{proj.name}</header>
-					<section class="p-4">(content)</section>
-					<footer class="card-footer">(footer)</footer>
-				</a>
-			{/each}
-		</div>
+	<div class="hidden 5xl:block bg-surface-800 p-4">
+		<h4 class="h5">Catalogs</h4>
 	</div>
 </div>

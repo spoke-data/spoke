@@ -26,8 +26,8 @@ export const isComponentsExpanded: Writable<boolean> = localStorageStore(
 	false
 );
 
-export const isModelsExpanded: Writable<boolean> = localStorageStore(
-	'spoke.isModelsExpanded',
+export const isCoreModelsExpanded: Writable<boolean> = localStorageStore(
+	'spoke.isCoreModelsExpanded',
 	false
 );
 

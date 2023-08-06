@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import logoLight from '$lib/assets/spokey-light.png';
 	import logoDark from '$lib/assets/spokey-dark.png';
 </script>
