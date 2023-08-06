@@ -1,6 +1,4 @@
 <script lang="ts">
-	import PageHeader from '../../../../components/PageHeader.svelte';
-	import CodeEditor from '../../../../components/CodeEditor.svelte';
 	import NotebookBlock from '../../../../components/NotebookBlock.svelte';
 
 	/** @type {import('./$types').PageData} */
@@ -42,7 +40,7 @@
 				</div>
 			</div>
 			<div class="w-[600px] hidden 3xl:block">
-				<div class="bg-surface-700 p-2 rounded-sm">
+				<div class="bg-surface-700 p-2 rounded-sm drop-shadow-lg">
 					<strong>init mem:</strong> 32MB, <strong>init cpu</strong>: 0%
 				</div>
 			</div>
@@ -62,7 +60,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								{#each people as row, i}
+								{#each people as row}
 									<tr>
 										<td>{row.name}</td>
 										<td>{row.age}</td>
@@ -76,7 +74,7 @@
 				</div>
 			</div>
 			<div class="w-[600px] hidden 3xl:block">
-				<div class="bg-surface-700 p-2 rounded-sm">
+				<div class="bg-surface-700 p-2 rounded-sm drop-shadow-lg">
 					<strong>time:</strong> 0.12s, <strong>mem:</strong> 104MB, <strong>cpu</strong>: 44%
 				</div>
 			</div>
@@ -91,7 +89,7 @@
 				</div>
 			</div>
 			<div class="w-[600px] hidden 3xl:block">
-				<div class="bg-surface-700 p-2 rounded-sm">
+				<div class="bg-surface-700 p-2 rounded-sm drop-shadow-lg">
 					<strong>time:</strong> 0.23s, <strong>mem:</strong> 43MB, <strong>cpu</strong>: 21%
 				</div>
 			</div>
@@ -106,7 +104,7 @@
 				</div>
 			</div>
 			<div class="w-[600px] hidden 3xl:block">
-				<div class="bg-surface-700 p-2 rounded-sm">
+				<div class="bg-surface-700 p-2 rounded-sm drop-shadow-lg">
 					<strong>total time:</strong> 0.35s, <strong>total mem:</strong> 179MB,
 					<strong>max cpu</strong>: 44%
 				</div>

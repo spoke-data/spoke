@@ -1,0 +1,3 @@
+[submodule "vendor/flight-sql-server-example"]
+	path = vendor/flight-sql-server-example
+	url = https://github.com/voltrondata/flight-sql-server-example.git
