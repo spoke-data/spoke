@@ -2,7 +2,8 @@
 
 The universal data connector [spoke.sh](https://www.spoke.sh).
 
-A local first development experience with a simple path to the cloud.
+A local first development environment that brings a git like experience to data engineering
+and reactive applications.
 
 ![projects overview](./docs/assets/projects-overview.png)
 
