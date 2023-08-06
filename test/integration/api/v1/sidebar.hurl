@@ -1,9 +1,10 @@
 GET {{protocol}}://{{host}}:{{port}}/api/v1/sidebar
 
 HTTP 200
-# Content-Type: application/json; charset=utf-8
+Content-Type: application/json
 [Asserts]
-# header "Content-Type" contains "utf-8"
+header "Access-Control-Allow-Origin" contains "*"
+header "Content-Type" contains "application/json"
 jsonpath "$.projects" count > 0
 jsonpath "$.projects[0].name" != null
 jsonpath "$.projects[0].slug" != null

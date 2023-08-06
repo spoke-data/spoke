@@ -84,11 +84,11 @@ fn getSidebar(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
                 \\  	{ "name": "Azure Lake Storage", "uri": "https://azure.microsoft.com/en-us/products/storage/data-lake-storage" },
                 \\  	{ "name": "Cloudflare R2", "uri": "https://developers.cloudflare.com/r2/" }
                 \\  ],
-                \\  "models": [
+                \\  "coreModels": [
                 \\  	{ "name": "Dennis", "slug": "dennis" },
+                \\  	{ "name": "Replicant", "slug": "replicant" },
                 \\  	{ "name": "Tudor", "slug": "tudor" },
                 \\  	{ "name": "Assistant", "slug": "assistant" },
-                \\  	{ "name": "Replicant", "slug": "replicant" },
                 \\  	{ "name": "Picasso", "slug": "picasso" },
                 \\  	{ "name": "Mozart", "slug": "mozart" },
                 \\  	{ "name": "Schumacher", "slug": "schumacher" },

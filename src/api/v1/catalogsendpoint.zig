@@ -25,7 +25,7 @@ pub fn getEndpoint(self: *Self) *zap.SimpleEndpoint {
 
 fn getCatalogs(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
     if (r.path) |path| {
-        // /api/v1/projects
+        // /api/v1/catalogs
         if (path.len == e.settings.path.len) {
             r.setHeader("Access-Control-Allow-Origin", "*") catch unreachable;
             r.sendJson(
@@ -78,7 +78,7 @@ fn getCatalogs(e: *zap.SimpleEndpoint, r: zap.SimpleRequest) void {
                 \\      {
                 \\          "name": "Spoke",
                 \\          "slug": "spoke"
-                \\      },
+                \\      }
                 \\  ]
                 \\}
             ) catch return;
